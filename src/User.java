@@ -11,7 +11,7 @@ public class User {
 
     }
 
-//    behavior -> check registered, borrow, return
+//  TODO  behavior -> check registered, borrow, return
 
     public void isRegistered(){
 
@@ -19,8 +19,36 @@ public class User {
     public void returnBook(){
 
     }
-    public  void borrowBook(){
+    public  void borrowBook(User user, Book book){
+        if (book.getQuantity() >0 ){
+            BookRecords record = new BookRecords(user , book);
+            book.decreaseQuantity();
 
+        }else {
+            System.out.println("Book not available ");
+        }
+    }
+
+
+
+    // getter
+    public String getName(){
+        return name;
+    }
+    public String getUsername(){
+        return username;
+    }
+    public String getContact(){
+        return contact;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public void setUsername(String username){
+        this.username = username;
+    }
+    public void setContact(String contact){
+        this.contact = contact;
     }
 
 
