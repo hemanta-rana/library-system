@@ -12,29 +12,13 @@ public class DatabaseConnection {
     private static final String password= "" ;
 
 
-
-    public static Connection connect() throws SQLException, ClassNotFoundException {
-        Class.forName("com.cj.jdbc.Driver");
+    public static  Connection connect() throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection(path, username, password);
         return conn;
 
     }
-    public static void main(String[] args){
 
-        try {
-            if(DatabaseConnection.connect() != null){
-                System.out.println("Connection successful");
-            }
-            else{
-                System.out.println("connection failed");
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
 
 
 }

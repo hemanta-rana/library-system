@@ -1,3 +1,7 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,6 +19,27 @@ public class Library {
         books.add(book2);
         Book book3 = new Book(3, "atomic habits",5,"cc");
         books.add(book3);
+        try {
+            Connection conn = DatabaseConnection.connect();
+            String query = "INSERT INTO book(bookName, Quantity, bookAuthor,bookNumber) VALUES (?,?,?,?)";
+
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1,book1.getName());
+            ps.setInt(2, book1.getQuantity());
+            ps.setString(3, book1.getAuthor());
+            ps.setInt(4,book1.getBookNumber());
+
+            if (ps.executeUpdate()> 0){
+                System.out.println("book added to database");
+            }else {
+                System.out.println("failed to add ");
+            }
+
+
+        }catch (SQLException | ClassNotFoundException e){
+            throw new RuntimeException(e);
+        }
+
 
 
         User user1 = new User("james","james1", "james@gmail.com");
