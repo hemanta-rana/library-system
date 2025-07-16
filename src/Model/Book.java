@@ -1,3 +1,5 @@
+package Model;
+
 public class Book {
 //    attributes -> book number, name, quantity, author
 

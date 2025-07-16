@@ -1,3 +1,5 @@
+package Model;
+
 public class User {
     private String name ;
     private String username ;
@@ -25,7 +27,7 @@ public class User {
             book.decreaseQuantity();
 
         }else {
-            System.out.println("Book not available ");
+            System.out.println("Model.Book not available ");
         }
     }
 

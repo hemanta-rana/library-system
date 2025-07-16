@@ -1,6 +1,8 @@
+package Model;
+
 public class BookRecords {
     private User user;
-    private  Book book;
+    private Book book;
     private String date;
     private boolean isReturned;
 
