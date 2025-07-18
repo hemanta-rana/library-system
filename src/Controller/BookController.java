@@ -2,16 +2,34 @@ package Controller;
 
 import Dao.BookDAO;
 import Model.Book;
+import com.mysql.cj.xdevapi.DeleteStatement;
+
+import java.util.ArrayList;
 
 public class BookController {
-    public static void storeBook(Book book){
-        BookDAO bookDAO= new BookDAO();
-        bookDAO.insertBook(book);
+    private BookDAO bookDAO = new BookDAO();
+    public  boolean storeBook(Book book){
+
+        if ( bookDAO.insertBook(book)){
+            return true;
+        } else {
+            return false;
+        }
+
     }
-    public static void deleteBook(int bookId){
-        BookDAO.deleteBook(bookId);
+    public  boolean deleteBook(int bookId){
+
+        if (bookDAO.deleteBook(bookId)){
+            return true;
+        }else{
+            return false;
+        }
+
     }
     public static void updateBook(int bookNumber, int bookID){
             BookDAO.updateBook(bookNumber, bookID);
+    }
+    public static ArrayList<Book> getBook(){
+        return BookDAO.allBook();
     }
 }

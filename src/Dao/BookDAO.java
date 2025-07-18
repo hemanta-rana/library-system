@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import  Model.Book;
 
 public class BookDAO {
-    public static void insertBook(Book book){
+    public  boolean insertBook(Book book){
 
         try {
             Connection conn = Dao.DatabaseConnection.connect();
@@ -23,9 +23,11 @@ public class BookDAO {
             ps.setInt(4,book.getBookNumber());
 
             if (ps.executeUpdate()> 0){
-                System.out.println("book added to database");
+
+                return true;
             }else {
                 System.out.println("failed to add ");
+                return false;
             }
 
 
@@ -34,7 +36,7 @@ public class BookDAO {
         }
 
     }
-    public static void  deleteBook(int bookid){
+    public boolean deleteBook(int bookid){
         try {
             Connection conn = Dao.DatabaseConnection.connect();
             String query = "DELETE FROM book WHERE bookid = ?";
@@ -42,8 +44,11 @@ public class BookDAO {
             ps.setInt(1,bookid);
             if(ps.executeUpdate() > 0){
                 System.out.println("book deleted");
+                return true;
+
             }else{
                 System.out.println("Failed to delete");
+                return  false;
             }
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);

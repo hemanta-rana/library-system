@@ -6,6 +6,7 @@ import java.net.SecureCacheResponse;
 import java.util.Scanner;
 
 public class MenuView {
+    static ViewController viewController = new ViewController();
     public  static  void showMenuView(){
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to the library ");
@@ -16,24 +17,36 @@ public class MenuView {
         System.out.println("5. update book");
         System.out.println("6. Delete book");
         System.out.println("7. Exit ");
+        boolean run = true;
 
-        System.out.println("Choose an option (1-4): ");
-        int option = input.nextInt();
-        if (option == 1){
-            ViewController.getAddBookView();
-        } else if (option == 2){
-            ViewController.getAvailableBooks();
-        } else if (option == 3) {
+        while (run){
+            System.out.println("Choose an option (1-4): ");
+            int option = input.nextInt();
 
-        } else if (option == 4) {
+            if (option < 0){
+                System.out.println("Invalid  option ");
+            } else {
+                if (option == 1){
+                    viewController.getAddBookView();
+                } else if (option == 2){
+                    viewController.getAvailableBooks();
+                } else if (option == 3) {
 
-        } else if (option == 5) {
-            ViewController.getUpdateView();
-        } else if (option == 6) {
-            ViewController.getDeleteView();
-        } else if (option== 7) {
 
+                } else if (option == 4) {
+
+                } else if (option == 5) {
+                    viewController.getUpdateView();
+                } else if (option == 6) {
+                    viewController.getDeleteView();
+                } else if (option== 7) {
+                    run =false;
+                }
+            }
         }
+
+
+
     }
 }
 

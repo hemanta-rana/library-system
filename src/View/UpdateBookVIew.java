@@ -13,8 +13,9 @@ public class UpdateBookVIew {
                 int bookid = scanner.nextInt();
                 System.out.println("Enter book Number: ");
                 int bookNumber = scanner.nextInt();
+                BookController.updateBook(bookNumber, bookid);
 
-        BookDAO.updateBook(bookNumber,bookid);
+
     }
 
 

@@ -6,17 +6,20 @@ import View.DeleteVIew;
 import View.UpdateBookVIew;
 
 public class ViewController {
-    public static void getAddBookView(){
-        AddbookView.AddBookView();
+    AddbookView addbookView = new AddbookView();
+    DeleteVIew deleteVIew = new DeleteVIew();
+    public  void getAddBookView(){
+        addbookView.AddBookView();
     }
-    public static void getAvailableBooks(){
+    public  void getAvailableBooks(){
         AvailableBookView.showAvailableBooks();
     }
-    public static void getUpdateView(){
+    public  void getUpdateView(){
         UpdateBookVIew.showUpdateView();
     }
-    public static void getDeleteView(){
-        DeleteVIew.showDeleteView();
+    public void getDeleteView(){
+        deleteVIew.showDeleteView();
     }
+
 
 }

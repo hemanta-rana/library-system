@@ -17,6 +17,10 @@ public class BookRecords {
         return user;
     }
 
+    public Book getBook(){return book; }
+
+
+
 
 
 

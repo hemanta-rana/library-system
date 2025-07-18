@@ -6,7 +6,8 @@ import Controller.BookController;
 import Model.Book;
 
 public class AddbookView {
-    public  static  void AddBookView(){
+    BookController  bookController = new BookController();
+    public void AddBookView(){
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the book name : ");
         String bookName = input.nextLine();
@@ -18,7 +19,11 @@ public class AddbookView {
         String  bookAuthor = input.nextLine();
 
         Book book = new Book(bookNumber, bookName, bookQuantity, bookAuthor);
+            if (bookController.storeBook(book)){
+                System.out.println("Successfully added ! ");
+            } else {
+                System.out.println("Failed to add ");
+            }
 
-        BookController.storeBook(book);
     }
 }
